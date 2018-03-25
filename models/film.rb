@@ -18,9 +18,9 @@ class Film
 
   def self.create()
     sql = "CREATE TABLE films (
-      id SERIAL4 PRIMARY KEY,
-      title VARCHAR(255),
-      price INT
+    id SERIAL4 PRIMARY KEY,
+    title VARCHAR(255),
+    price INT
     );"
     SqlRunner.run(sql)
   end

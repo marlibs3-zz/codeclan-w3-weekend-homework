@@ -31,6 +31,5 @@ CREATE TABLE screenings (
 CREATE TABLE tickets (
   id SERIAL4 PRIMARY KEY,
   customer_id INT4 REFERENCES customers(id) ON DELETE CASCADE,
-  screening_id INT4 REFERENCES screenings(id) ON DELETE CASCADE,
-  fee INT
+  screening_id INT4 REFERENCES screenings(id) ON DELETE CASCADE
 );
