@@ -17,8 +17,8 @@ class Room
 
   def self.create()
     sql = "CREATE TABLE rooms (
-      id SERIAL4 PRIMARY KEY,
-      capacity INT
+    id SERIAL4 PRIMARY KEY,
+    capacity INT
     );"
     SqlRunner.run(sql)
   end

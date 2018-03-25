@@ -7,7 +7,8 @@ class Customer
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
-    @capacity = options['capacity'].to_i
+    @name = options['name']
+    @funds = options['funds'].to_i
   end
 
   def self.drop()
@@ -17,9 +18,9 @@ class Customer
 
   def self.create()
     sql = "CREATE TABLE customers (
-      id SERIAL4 PRIMARY KEY,
-      name VARCHAR(255),
-      funds INT
+    id SERIAL4 PRIMARY KEY,
+    name VARCHAR(255),
+    funds INT
     );"
     SqlRunner.run(sql)
   end
