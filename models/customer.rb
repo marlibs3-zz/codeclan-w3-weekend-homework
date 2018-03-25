@@ -27,15 +27,11 @@ class Customer
 
   def save()
     sql = "INSERT INTO customers
-    (
-      name,
-      funds
-    )
+    (name, funds)
     VALUES
-    (
-      $1, $2
-    )
-    RETURNING id"
+    ($1, $2)
+    RETURNING
+    id"
     values = [@name, @funds]
     customer = SqlRunner.run( sql,values ).first
     @id = customer['id'].to_i
@@ -44,16 +40,17 @@ class Customer
   def update()
     sql = "UPDATE customers
     SET
-    (
-      name,
-      funds
-    ) =
-    (
-      $1, $2
-    )
-    WHERE id = $3"
+    (name, funds) = ($1, $2)
+    WHERE
+    id = $3"
     values = [@name, @funds, @id]
     SqlRunner.run(sql, values)
   end
 
+  def delete()
+    sql = "DELETE * FROM customers where id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
   end
+
+end

@@ -25,14 +25,11 @@ class Room
 
   def save()
     sql = "INSERT INTO rooms
-    (
-      capacity
-    )
+    (capacity)
     VALUES
-    (
-      $1
-    )
-    RETURNING id"
+    ($1)
+    RETURNING
+    id"
     values = [@capacity]
     room = SqlRunner.run( sql,values ).first
     @id = room['id'].to_i
@@ -41,14 +38,16 @@ class Room
   def update()
     sql = "UPDATE rooms
     SET
-    (
-      capacity
-    ) =
-    (
-      $1
-    )
-    WHERE id = $2"
+    (capacity) = ($1)
+    WHERE
+    id = $2"
     values = [@capacity, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE * FROM rooms where id = $1"
+    values = [@id]
     SqlRunner.run(sql, values)
   end
 

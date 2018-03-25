@@ -31,16 +31,11 @@ class Screening
 
   def save()
     sql = "INSERT INTO screenings
-    (
-      film_id,
-      room_id,
-      date_and_time
-    )
+    (film_id, room_id, date_and_time)
     VALUES
-    (
-      $1, $2, $3
-    )
-    RETURNING id"
+    ($1, $2, $3)
+    RETURNING
+    id"
     values = [@film_id, @room_id, @date_and_time]
     screening = SqlRunner.run( sql,values ).first
     @id = screening['id'].to_i
@@ -49,16 +44,16 @@ class Screening
   def update()
     sql = "UPDATE screenings
     SET
-    (
-      film_id,
-      room_id,
-      date_and_time
-    ) =
-    (
-      $1, $2, $3
-    )
-    WHERE id = $4"
+    (film_id, room_id, date_and_time) = ($1, $2, $3)
+    WHERE
+    id = $4"
     values = [@film_id, @room_id, @date_and_time, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE * FROM screenings where id = $1"
+    values = [@id]
     SqlRunner.run(sql, values)
   end
 
