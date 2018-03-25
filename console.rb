@@ -36,5 +36,7 @@ screening1.save()
 ticket1 = Ticket.new({ 'customer_id' => '2', 'screening_id' => '1' })
 ticket1.save()
 
+p "I did the things"
+
 # binding.pry
 # nil

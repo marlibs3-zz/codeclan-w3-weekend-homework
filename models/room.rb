@@ -38,4 +38,18 @@ class Room
     @id = room['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE rooms
+    SET
+    (
+      capacity
+    ) =
+    (
+      $1
+    )
+    WHERE id = $2"
+    values = [@capacity, @id]
+    SqlRunner.run(sql, values)
+  end
+
 end
