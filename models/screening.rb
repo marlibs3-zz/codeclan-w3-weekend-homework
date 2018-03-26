@@ -81,4 +81,13 @@ class Screening
     return customers
   end
 
+  def customer_number()
+    sql = "SELECT tickets.*
+    FROM tickets
+    WHERE tickets.screening_id = $1"
+    values = [@id]
+    customer_number_data = SqlRunner.run(sql, values)
+    return Customer.map_items(customer_number_data).count
+  end
+
 end

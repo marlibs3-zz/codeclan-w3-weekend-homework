@@ -54,6 +54,8 @@ p screening1.customers()
 
 p customer3.tickets()
 
+p screening1.customer_number()
+
 p "I did the things"
 
 # binding.pry

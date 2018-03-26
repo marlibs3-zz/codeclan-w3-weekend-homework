@@ -80,7 +80,7 @@ class Customer
     WHERE tickets.customer_id = $1"
     values = [@id]
     ticket_data = SqlRunner.run(sql, values)
-    return Screening.map_items(ticket_data).count
+    return Ticket.map_items(ticket_data).count
   end
 
 end
