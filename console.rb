@@ -45,7 +45,12 @@ ticket2 = Ticket.new({ 'customer_id' => '2', 'screening_id' => '1' })
 ticket2.save()
 ticket2 = Ticket.new({ 'customer_id' => '3', 'screening_id' => '1' })
 ticket2.save()
+ticket2 = Ticket.new({ 'customer_id' => '3', 'screening_id' => '2' })
+ticket2.save()
 
+p customer3.screenings()
+
+p screening1.customers()
 
 p "I did the things"
 
