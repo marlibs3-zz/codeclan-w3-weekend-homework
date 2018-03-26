@@ -39,8 +39,13 @@ screening1.save()
 screening2 = Screening.new({ 'film_id' => '2', 'room_id' => '1', 'date_and_time' => '31-Mar-2018 20:00' })
 screening2.save()
 
-ticket1 = Ticket.new({ 'customer_id' => '2', 'screening_id' => '1' })
+ticket1 = Ticket.new({ 'customer_id' => '1', 'screening_id' => '1' })
 ticket1.save()
+ticket2 = Ticket.new({ 'customer_id' => '2', 'screening_id' => '1' })
+ticket2.save()
+ticket2 = Ticket.new({ 'customer_id' => '3', 'screening_id' => '1' })
+ticket2.save()
+
 
 p "I did the things"
 
